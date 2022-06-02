@@ -1,22 +1,8 @@
 
-
+import { getArray } from "../utils/createArray"
 const defaultState = { 
- table: [{value:1, isUncovered: false, isFound:false},
-  {value:2, isUncovered:false, isFound:false}, 
-  {value:3, isUncovered:false, isFound:false},
-  {value:4, isUncovered:false, isFound:false},
-  {value:3, isUncovered:false, isFound:false},
-  {value:2, isUncovered:false, isFound:false},
-  {value:4, isUncovered:false, isFound:false},
-  {value:1, isUncovered:false, isFound:false},
-  {value:5, isUncovered:false, isFound:false},
-  {value:7, isUncovered:false, isFound:false},
-  {value:8, isUncovered:false, isFound:false},
-  {value:6, isUncovered:false, isFound:false},
-  {value:6, isUncovered:false, isFound:false},
-  {value:8, isUncovered:false, isFound:false},
-  {value:5, isUncovered:false, isFound:false},
-  {value:7, isUncovered:false, isFound:false}],    
+  table: getArray(8),
+  isPairSelected: false,  
 }
 export const pairReducer = (state = defaultState, action) => {
   switch(action.type){   
@@ -36,9 +22,11 @@ export const pairReducer = (state = defaultState, action) => {
           })
         }
     case 'FULL_RESET':
-      return {...state, table: state.table.map(tile=>{
-        return {...tile, isFound: false, isUncovered: false }
-      })}           
+      return {...state, table: getArray(8)}
+    case 'SET_IS_PAIR_SELECTED':
+      return {...state, isPairSelected: action.payload}
+    case 'UNSET_IS_PAIR_SELECTED':
+      return {...state, isPairSelected: false}
     default: 
        return state;
   }

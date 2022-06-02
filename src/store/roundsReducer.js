@@ -14,10 +14,10 @@ export const roundsReducer = (state= defaultState, action)=>{
       return {...state, successRounds: state.successRounds+=1}  
     case 'RESET_ROUND':
       return {...state, rounds: 1, failedRounds:0, successRounds:0}  
-    case 'SHOW_WIN':
+    case 'END_GAME':
       return {...state, win: state.win = true }     
     case 'HIDE_WIN':
-        return {...state, win: state.win = false }     
+      return {...state, win: state.win = false }     
     default:
       return state;
   }

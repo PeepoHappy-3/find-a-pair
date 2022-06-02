@@ -1,0 +1,40 @@
+.score {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "col1 col1 col1" "col2 col3 col4";
+    justify-items: center;
+}
+
+.score__rounds-counter {
+    font-size: 42px;
+    grid-area: col1;
+    margin-bottom: 0;
+}
+
+.score__failed,
+.score__success {
+    font-size: 30px;
+}
+
+.score__failed {
+    grid-area: col2;
+    color: red;
+}
+
+.score__success {
+    grid-area: col4;
+    color: green;
+}
+
+.score__button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform .2s ease-in;
+    font-size: 30px;
+}
+
+.score__button:hover {
+    transform: scale(1.2);
+    text-decoration: underline;
+}
