@@ -1,8 +1,5 @@
 
-
-
-export const newArray = (n)=>{
- 
+export const newArray = (n)=>{ 
   let array = [];
   for(let i=0; i < n; i++){
     array.push(i+1);
@@ -19,7 +16,7 @@ export function shuffle(array){
 }
 export function getArray(n){
   const bigChungusArray =[...newArray(n), ...newArray(n)]; 
-  return shuffle(bigChungusArray.map((b=>{
+  return shuffle(bigChungusArray).map((b=>{
     return {value: b, isFound: false, isUncovered: false};
-  })));
+  }));
 }
